@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.4.1</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+
+	<groupId>me.pacphi</groupId>
+	<artifactId>spring-ai-converse</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<name>spring-ai-converse</name>
+	<description>Spring AI starters for conversational AI with support for alternative model providers</description>
+
+	<prerequisites>
+		<maven>3.9.4</maven>
+	</prerequisites>
+
+	<modules>
+		<module>core</module>
+		<module>elevenlabs-starter</module>
+		<module>playground</module>
+	</modules>
+
+	<issueManagement>
+		<url>https://github.com/pacphi/spring-ai-converse/issues</url>
+		<system>GitHub Issues</system>
+	</issueManagement>
+
+	<licenses>
+		<license>
+			<name>Apache</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0</url>
+		</license>
+	</licenses>
+
+	<scm>
+		<url>https://github.com/pacphi/spring-ai-converse</url>
+		<connection>scm:git:git://github.com/pacphi/spring-ai-converse.git</connection>
+		<developerConnection>scm:git:git@github.com:pacphi/spring-ai-converse.git</developerConnection>
+		<tag>HEAD</tag>
+	</scm>
+
+	<developers>
+		<developer>
+			<name>Chris Phillipson</name>
+			<url>https://github.com/pacphi</url>
+			<id>pacphi</id>
+		</developer>
+	</developers>
+
+	<distributionManagement>
+		<!-- publish to GitHub gh-pages -->
+		<site>
+			<id>github</id>
+			<name>Deployment through Maven's SCM Publish Plugin</name>
+			<url>scm:git:git@github.com:pacphi/spring-ai-converse.git</url>
+		</site>
+	</distributionManagement>
+
+	<properties>
+		<java.version>21</java.version>
+	</properties>
+
+</project>
