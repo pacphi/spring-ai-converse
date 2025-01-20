@@ -19,7 +19,7 @@ Use-cases:
 
 * [x] Interfaces and abstract implementations for conversations (speech to text, inquiry, and text to speech)
 * Support for speech to text using
-  * [ ] to be identified open-source alternative LMM models/services
+  * [ ] to be identified open-source alternative LLM models/services
 * Support for text to speech using 
   * [x] [ElevenLabs API](https://elevenlabs.io/docs/api-reference/text-to-speech/convert)
   * [ ] [Parler TTS](https://huggingface.co/ecyht2/parler-tts-mini-v1-GGUF)
@@ -64,8 +64,6 @@ cd spring-ai-converse
 mvn clean install
 ```
 
-For more exotic build and packaging alternatives, refer to the guide [here](docs/BUILD.md).
-
 ## How to run
 
 Set these environment variables
@@ -92,5 +90,3 @@ http POST :8080/api/elevenlabs/speak \                                          
   Content-Type:application/json \
   text="A modern-day warrior.  Mean, mean stride.  Today's Tom Sawyer.  Mean, mean pride."
 ```
-
-
