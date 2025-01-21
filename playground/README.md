@@ -16,7 +16,7 @@ export ELEVENLABS_API_KEY=
 
 > Add an appropriate value for each environment variable above.
 
-Navigate the playground directory and activate a Spring profile
+Navigate to the `playground` directory and activate a Spring profile
 
 ```bash
 cd playground
