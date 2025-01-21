@@ -115,11 +115,11 @@ application.yml
 ```yaml
 spring:
   elevenlabs:
-  enabled: true
-  api-key: ${ELEVENLABS_API_KEY:}
-  defaults:
-    # Consult https://api.elevenlabs.io/v1/voices for a list of all the available voices
-    voiceId: Xb7hH8MSUJpSbSDYk0k2
+    enabled: true
+    api-key: ${ELEVENLABS_API_KEY:}
+    defaults:
+      # Consult https://api.elevenlabs.io/v1/voices for a list of all the available voices
+      voiceId: Xb7hH8MSUJpSbSDYk0k2
 ```
 
 > Each dependency you add will require a similar stanza where you will typically: activate the capability, specify an API key (if required), and tune other associated configuration.
