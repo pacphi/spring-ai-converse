@@ -39,16 +39,20 @@ Use-cases:
 Start with:
 
 * A Github [account](https://github.com/signup)
-* An Eleven Labs [account](https://elevenlabs.io/app/sign-in)
+* One or more of an
+  * AssemblyAI [account](https://www.assemblyai.com/dashboard/signup)
+  * Eleven Labs [account](https://elevenlabs.io/app/sign-up)
 * An LLM provider
   * e.g., HuggingFace, Gemini, Ollama, or OpenAI
 
 ## Prerequisites
 
-* Git CLI
+* Git CLI (2.43.0 or better)
+* Github CLI (2.65.0 or better)
+* httpie CLI (3.2.2 or better)
+* Java SDK (21 or better)
+* Maven (3.9.9 or better)
 * an LLM provider account (if using public cloud or commercially hosted models)
-* Java SDK 21
-* Maven 3.9.9
 
 ## How to clone
 

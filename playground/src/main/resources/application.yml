@@ -52,6 +52,17 @@ spring:
 spring:
   config:
     activate:
+      on-profile: assemblyai
+
+  assemblyai:
+    enabled: true
+    api-key: ${ASSEMBLYAI_API_KEY:}
+
+---
+
+spring:
+  config:
+    activate:
       on-profile: dev
 
 debug: true

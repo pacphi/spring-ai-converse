@@ -11,7 +11,7 @@
 	</parent>
 
 	<groupId>me.pacphi</groupId>
-	<artifactId>spring-ai-converse</artifactId>
+	<artifactId>spring-ai-converse-parent</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
@@ -24,8 +24,15 @@
 
 	<modules>
 		<module>core</module>
-		<module>elevenlabs-starter</module>
+		<module>elevenlabs</module>
 		<module>playground</module>
+        <module>assemblyai</module>
+<!--		<module>google-text-to-speech</module>-->
+<!--		<module>google-speech-to-text</module>-->
+<!--        <module>picovoice-leopard</module>-->
+<!--		<module>picovoice-cheetah</module>-->
+<!--		<module>picovoice-porcupine</module>-->
+<!--		<module>parler-text-to-speech</module>-->
 	</modules>
 
 	<issueManagement>

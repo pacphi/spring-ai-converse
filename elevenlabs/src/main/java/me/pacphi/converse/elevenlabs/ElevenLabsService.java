@@ -3,17 +3,15 @@ package me.pacphi.converse.elevenlabs;
 import me.pacphi.converse.AudioResponse;
 import me.pacphi.converse.TextToSpeechService;
 import me.pacphi.converse.elevenlabs.api.ElevenLabsApi;
+import me.pacphi.converse.elevenlabs.api.ElevenLabsApiException;
 import me.pacphi.converse.elevenlabs.api.OutputFormat;
 import me.pacphi.converse.elevenlabs.api.TextToSpeechRequest;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.core.io.Resource;
 
 import java.io.IOException;
 
 public class ElevenLabsService implements TextToSpeechService {
 
-    private static Logger log = LoggerFactory.getLogger(ElevenLabsService.class);
     private final ElevenLabsApi elevenLabsApi;
 
     public ElevenLabsService(ElevenLabsApi elevenLabsApi) {
@@ -32,8 +30,7 @@ public class ElevenLabsService implements TextToSpeechService {
             byte[] audioData = resource.getContentAsByteArray();
             return new AudioResponse(request.text(), audioData);
         } catch (IOException e) {
-            log.error("Trouble processing ElevenLabs API request", e);
-            throw new RuntimeException(e);
+            throw new ElevenLabsApiException("Trouble processing ElevenLabs API request", e);
         }
     }
 

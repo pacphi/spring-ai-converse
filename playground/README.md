@@ -32,3 +32,32 @@ http POST :8080/api/elevenlabs/speak \                                          
   Content-Type:application/json \
   text="A modern-day warrior.  Mean, mean stride.  Today's Tom Sawyer.  Mean, mean pride."
 ```
+
+### AssemblyAI
+
+Set these environment variables
+
+```bash
+export ASSEMBLYAI_API_KEY=
+```
+
+> Add an appropriate value for each environment variable above.
+
+Navigate to the `playground` directory and activate a Spring profile
+
+```bash
+cd playground
+mvn spring-boot:run -Dspring-boot.run.arguments=--spring.profiles.active=assemblyai,dev
+```
+
+> Back in the terminal shell, press Ctrl+C to shutdown.
+
+#### Available endpoints
+
+```commandline
+http POST :8080/api/assemblyai/transcribe \ 
+  Content-Type:application/octet-stream \
+  @/path/to/your/audio/file
+```
+
+> Replace `/path/to/your/audio/file` above with a valid absolute path to your audio file
