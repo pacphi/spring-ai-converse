@@ -10,6 +10,7 @@ Community Spring Boot and Spring AI building blocks for conversations between hu
 * How to
     * [Clone](#how-to-clone)
     * [Build](#how-to-build)
+    * [Consume](#how-to-consume)
     * [Run](#how-to-run)
     * [Endpoints](#endpoints)
 
@@ -64,7 +65,65 @@ cd spring-ai-converse
 mvn clean install
 ```
 
+## How to consume
+
+If you want to incorporate any of the starters as dependencies in your own projects, you would:
+
+### Add dependency
+
+Maven
+
+```maven
+<dependency>
+    <groupId>me.pacphi</groupId>
+    <artifactId>spring-boot-elevenlabs-starter</artifactId>
+    <version>{release-version}</version>
+</dependency>
+```
+
+Gradle
+
+```gradle
+implementation 'me.pacphi:spring-boot-elevenlabs-starter:{release-version}'
+```
+
+> Replace occurrences of {release-version} above with a valid artifact release version number
+
+### Add configuration
+
+Following Spring Boot conventions, you would add a stanza like this to your:
+
+application.properties
+
+```properties
+spring.elevenlabs.enabled=true
+spring.elevenlabs.api-key=${ELEVENLABS_API_KEY:}
+# Consult https://api.elevenlabs.io/v1/voices for a list of all the available voices
+spring.elevenlabs.defaults.voiceId=Xb7hH8MSUJpSbSDYk0k2
+```
+
+application.yml
+
+```yaml
+spring:
+  elevenlabs:
+  enabled: true
+  api-key: ${ELEVENLABS_API_KEY:}
+  defaults:
+    # Consult https://api.elevenlabs.io/v1/voices for a list of all the available voices
+    voiceId: Xb7hH8MSUJpSbSDYk0k2
+```
+
+> Each dependency you add will require a similar stanza where you will typically: activate the capability, specify an API key (if required), and tune other associated configuration.
+
+Consult the [playground](playground) module's configuration for alternative
+`dependencies` and `configuration` that are available to add.
+
+Configuration will be found in labeled `spring.config.activate.on-profile` sections of the [pom.xml](playground/pom.xml) file.
+
 ## How to run
+
+There's a sample application in the [playground](playground) module.
 
 Set these environment variables
 
