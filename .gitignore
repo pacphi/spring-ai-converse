@@ -33,5 +33,5 @@ build/
 .history/
 
 ### Sensitive ###
-config/creds*.yml
-config/*.txt
+**/config/creds*.yml
+**/config/*.txt
