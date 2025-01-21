@@ -12,7 +12,6 @@ Community Spring Boot and Spring AI building blocks for conversations between hu
     * [Build](#how-to-build)
     * [Consume](#how-to-consume)
     * [Run](#how-to-run)
-    * [Endpoints](#endpoints)
 
 ## Background
 
