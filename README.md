@@ -16,14 +16,23 @@ Community Spring Boot and Spring AI building blocks for conversations between hu
 
 ## Background
 
+As a Spring Boot and Spring AI developer, I want
+to consume libraries that make it convenient to add capabilities to my application(s)
+as for the following
+
 Use-cases:
 
 * [x] Interfaces and abstract implementations for conversations (speech to text, inquiry, and text to speech)
 * Support for speech to text using
-  * [ ] to be identified open-source alternative LLM models/services
+  * [ ] [Assembly AI](https://www.assemblyai.com/blog/speech-recognition-in-java/)
+  * [ ] [Google STT](https://cloud.google.com/speech-to-text/docs/transcribe-client-libraries#client-libraries-install-java)
+  * [ ] [Picovoice Leopard](https://github.com/Picovoice/leopard?tab=readme-ov-file#java-demo)
+  * [ ] [Picovoice Cheetah](https://github.com/Picovoice/cheetah?tab=readme-ov-file#java-demos)
 * Support for text to speech using 
   * [x] [ElevenLabs API](https://elevenlabs.io/docs/api-reference/text-to-speech/convert)
+  * [ ] [Picovoice Porcupine](https://github.com/Picovoice/porcupine?tab=readme-ov-file#java-demos)
   * [ ] [Parler TTS](https://huggingface.co/ecyht2/parler-tts-mini-v1-GGUF)
+  * [ ] [Google TTS](https://cloud.google.com/text-to-speech/docs/create-audio-text-client-libraries#client-libraries-install-java)
 * [ ] Sample converse implementations
 
 ## Getting started
