@@ -23,7 +23,7 @@ Use-cases:
 
 * [x] Interfaces and abstract implementations for conversations (speech to text, inquiry, and text to speech)
 * Support for speech to text using
-  * [ ] [Assembly AI](https://www.assemblyai.com/blog/speech-recognition-in-java/)
+  * [x] [Assembly AI](https://www.assemblyai.com/blog/speech-recognition-in-java/)
   * [ ] [Google STT](https://cloud.google.com/speech-to-text/docs/transcribe-client-libraries#client-libraries-install-java)
   * [ ] [Picovoice Leopard](https://github.com/Picovoice/leopard?tab=readme-ov-file#java-demo)
   * [ ] [Picovoice Cheetah](https://github.com/Picovoice/cheetah?tab=readme-ov-file#java-demos)
