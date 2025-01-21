@@ -133,28 +133,3 @@ Configuration will be found in labeled `spring.config.activate.on-profile` secti
 ## How to run
 
 There's a sample application in the [playground](playground) module.
-
-Set these environment variables
-
-```bash
-export ELEVENLABS_API_KEY=
-```
-
-> Add an appropriate value for each environment variable above.
-
-Navigate the playground directory and activate a Spring profile
-
-```bash
-cd playground
-mvn spring-boot:run -Dspring-boot.run.arguments=--spring.profiles.active=elevenlabs,dev
-```
-
-> Back in the terminal shell, press Ctrl+C to shutdown.
-
-## Endpoints
-
-```commandline
-http POST :8080/api/elevenlabs/speak \                                                                                                                                                                                                                     ✔  10s    12:05:55   
-  Content-Type:application/json \
-  text="A modern-day warrior.  Mean, mean stride.  Today's Tom Sawyer.  Mean, mean pride."
-```
