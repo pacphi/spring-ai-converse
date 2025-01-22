@@ -39,9 +39,11 @@ Use-cases:
 Start with:
 
 * A Github [account](https://github.com/signup)
-* One or more of an
+* One or more of a(n)
   * AssemblyAI [account](https://www.assemblyai.com/dashboard/signup)
   * Eleven Labs [account](https://elevenlabs.io/app/sign-up)
+  * Google Cloud [account](https://cloud.google.com/docs/get-started)
+  * Picovoice [account](https://console.picovoice.ai/signup)
 * An LLM provider
   * e.g., HuggingFace, Gemini, Ollama, or OpenAI
 
