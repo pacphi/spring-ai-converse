@@ -39,6 +39,17 @@ management:
 spring:
   config:
     activate:
+      on-profile: assemblyai
+
+  assemblyai:
+    enabled: true
+    api-key: ${ASSEMBLYAI_API_KEY:}
+
+---
+
+spring:
+  config:
+    activate:
       on-profile: elevenlabs
 
   elevenlabs:
@@ -52,11 +63,15 @@ spring:
 spring:
   config:
     activate:
-      on-profile: assemblyai
+      on-profile: google
 
-  assemblyai:
-    enabled: true
-    api-key: ${ASSEMBLYAI_API_KEY:}
+  google:
+    speech-to-text:
+      enabled: true
+      project: ${GOOGLE_PROJECT_ID:}
+      defaults:
+        language-code: ${GOOGLE_STT_LANGUAGE_CODE:en-US}
+        model: ${GOOGLE_STT_MODEL:latest_long}
 
 ---
 
