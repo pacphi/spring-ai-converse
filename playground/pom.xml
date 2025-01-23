@@ -20,17 +20,22 @@
         </dependency>
         <dependency>
             <groupId>me.pacphi</groupId>
-            <artifactId>spring-boot-elevenlabs-starter</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>me.pacphi</groupId>
             <artifactId>spring-boot-assemblyai-starter</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>me.pacphi</groupId>
+            <artifactId>spring-boot-elevenlabs-starter</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>me.pacphi</groupId>
             <artifactId>spring-boot-google-speech-to-text-starter</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>me.pacphi</groupId>
+            <artifactId>spring-boot-google-text-to-speech-starter</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>

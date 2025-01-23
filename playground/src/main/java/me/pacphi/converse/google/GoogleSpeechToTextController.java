@@ -4,10 +4,7 @@ import me.pacphi.converse.google.transcribe.GoogleSpeechToTextService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Profile("google")
 @RestController
@@ -21,7 +18,9 @@ public class GoogleSpeechToTextController {
     }
 
     @PostMapping(value = "/transcribe", consumes = MediaType.APPLICATION_OCTET_STREAM_VALUE)
-    public ResponseEntity<String> transcribe(@RequestBody byte[] audio) {
-        return ResponseEntity.ok(googleSpeechToTextService.transcribe(audio));
+    public ResponseEntity<String> transcribe(@RequestBody byte[] audio,
+                                             @RequestParam(required = false) String languageCode,
+                                             @RequestParam(required = false) String model) {
+        return ResponseEntity.ok(googleSpeechToTextService.transcribe(languageCode, model, audio));
     }
 }

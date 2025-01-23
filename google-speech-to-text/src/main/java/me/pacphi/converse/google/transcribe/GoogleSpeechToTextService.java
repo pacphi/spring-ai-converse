@@ -13,16 +13,28 @@ import java.util.List;
 
 public class GoogleSpeechToTextService implements AudioTranscriptionService {
 
+    private final String defaultLanguageCode;
+    private final String defaultModel;
     private final GoogleSpeechToTextApi googleSpeechToTextApi;
 
-    public GoogleSpeechToTextService(GoogleSpeechToTextApi googleSpeechToTextApi) {
+    public GoogleSpeechToTextService(String defaultLanguageCode, String defaultModel, GoogleSpeechToTextApi googleSpeechToTextApi) {
         this.googleSpeechToTextApi = googleSpeechToTextApi;
+        this.defaultLanguageCode = defaultLanguageCode;
+        this.defaultModel = defaultModel;
     }
 
     @Override
     public String transcribe(byte[] audio) {
+        return transcribe(null, null, audio);
+    }
+
+    public String transcribe(String languageCode, String model, byte[] audio) {
         try (InputStream inputStream = new ByteArrayInputStream(audio)) {
-            List<SpeechRecognitionResult> results = googleSpeechToTextApi.speechToText(inputStream);
+            List<SpeechRecognitionResult> results =
+                    googleSpeechToTextApi.speechToText(
+                            languageCode == null ? defaultLanguageCode: languageCode,
+                            model == null ? defaultModel: model,
+                            inputStream);
             StringBuilder sb = new StringBuilder();
             for (SpeechRecognitionResult result : results) {
                 if (result.getAlternativesCount() > 0) {

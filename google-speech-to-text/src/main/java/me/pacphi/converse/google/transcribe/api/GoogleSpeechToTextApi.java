@@ -13,16 +13,12 @@ import java.util.concurrent.ExecutionException;
 public class GoogleSpeechToTextApi {
 
     private final String projectId;
-    private final String languageCode;
-    private final String model;
 
-    public GoogleSpeechToTextApi(String projectId, String languageCode, String model) {
+    public GoogleSpeechToTextApi(String projectId) {
         this.projectId = projectId;
-        this.languageCode = languageCode;
-        this.model = model;
     }
 
-    public List<SpeechRecognitionResult> speechToText(InputStream stream) {
+    public List<SpeechRecognitionResult> speechToText(String languageCode, String model, InputStream stream) {
         try (SpeechClient client = SpeechClient.create()) {
             String uuid = UUID.randomUUID().toString().replaceAll("-", "");
             String recognizerId = "a" + uuid.substring(0, Math.min(61, uuid.length()));

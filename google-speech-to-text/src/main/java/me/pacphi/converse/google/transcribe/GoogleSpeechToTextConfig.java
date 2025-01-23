@@ -12,14 +12,14 @@ public class GoogleSpeechToTextConfig {
 
     @Bean
     public GoogleSpeechToTextApi googleSpeechToTextApi(
-            @Value("${spring.google.speech-to-text.project}") String projectId,
-            @Value("${spring.google.speech-to-text.defaults.language-code}") String languageCode,
-            @Value("${spring.google.speech-to-text.defaults.model}") String model) {
-        return new GoogleSpeechToTextApi(projectId, languageCode, model);
+            @Value("${spring.google.speech-to-text.project}") String projectId) {
+        return new GoogleSpeechToTextApi(projectId);
     }
 
     @Bean
-    public GoogleSpeechToTextService googleSpeechToTextService(GoogleSpeechToTextApi googleSpeechToTextApi) {
-        return new GoogleSpeechToTextService(googleSpeechToTextApi);
+    public GoogleSpeechToTextService googleSpeechToTextService(@Value("${spring.google.speech-to-text.defaults.language-code}") String languageCode,
+                                                               @Value("${spring.google.speech-to-text.defaults.model}") String model,
+                                                               GoogleSpeechToTextApi googleSpeechToTextApi) {
+        return new GoogleSpeechToTextService(languageCode, model, googleSpeechToTextApi);
     }
 }

@@ -3,7 +3,8 @@ package me.pacphi.converse.elevenlabs;
 import me.pacphi.converse.AudioResponse;
 import me.pacphi.converse.elevenlabs.api.OutputFormat;
 import me.pacphi.converse.elevenlabs.api.TextToSpeechRequest;
-import me.pacphi.converse.elevenlabs.util.Audio;
+import me.pacphi.converse.util.Mp3Player;
+import me.pacphi.converse.util.PcmPlayer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Profile;
 import org.springframework.http.ResponseEntity;
@@ -39,7 +40,10 @@ public class ElevenLabsController {
             @RequestParam(required = false, defaultValue = "true") Boolean enableLogging,
             @RequestParam(required = false, defaultValue = "MP3_44100_64") OutputFormat outputFormat) {
         AudioResponse response = elevenLabsService.speak(voiceId, request, enableLogging, outputFormat);
-        Audio.playback(Base64.getDecoder().decode(response.audioBase64()));
+        if (outputFormat.isMp3Compatible())
+            Mp3Player.create().play(Base64.getDecoder().decode(response.audioBase64()));
+        if (outputFormat.isPcmCompatible() || outputFormat.isUlawCompatible())
+            PcmPlayer.create().play(Base64.getDecoder().decode(response.audioBase64()), outputFormat.getAudioFormat());
         return ResponseEntity.ok(response);
     }
 }

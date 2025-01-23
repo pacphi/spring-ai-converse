@@ -1,5 +1,6 @@
-package me.pacphi.converse.elevenlabs.util;
+package me.pacphi.converse.util;
 
+import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -7,11 +8,15 @@ import org.slf4j.LoggerFactory;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
-public class Audio {
+public class Mp3Player {
 
-    private static Logger log = LoggerFactory.getLogger(Audio.class);
+    private static Logger log = LoggerFactory.getLogger(Mp3Player.class);
 
-    public static void playback(byte[] audioData) {
+    public static Mp3Player create() {
+        return new Mp3Player();
+    }
+
+    public void play(byte[] audioData) {
         try {
             ByteArrayInputStream bis = new ByteArrayInputStream(audioData);
             Player player = new Player(bis);
@@ -19,7 +24,7 @@ public class Audio {
             Thread playerThread = Thread.ofVirtual().start(() -> {
                 try {
                     player.play();
-                } catch (Exception e) {
+                } catch (JavaLayerException e) {
                     log.error("Error during audio playback", e);
                 } finally {
                     player.close();
@@ -34,9 +39,11 @@ public class Audio {
             // Wait for playback to complete if needed
             playerThread.join();
 
-        } catch (Exception e) {
+        } catch (InterruptedException | JavaLayerException e) {
             log.error("Error initializing audio playback", e);
             throw new RuntimeException("Failed to play audio", e);
         }
     }
+
+
 }

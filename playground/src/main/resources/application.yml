@@ -72,6 +72,12 @@ spring:
       defaults:
         language-code: ${GOOGLE_STT_LANGUAGE_CODE:en-US}
         model: ${GOOGLE_STT_MODEL:latest_long}
+    text-to-speech:
+      enabled: true
+      defaults:
+        language-code: ${GOOGLE_TTS_LANGUAGE_CODE:en-US}
+        voice-gender: ${GOOGLE_TTS_VOICE_GENDER:NEUTRAL}
+        audio-encoding: ${GOOGLE_TTS_AUDIO_ENCODING:MP3}
 
 ---
 
