@@ -70,6 +70,18 @@ http POST :8080/api/elevenlabs/speak \                                          
   text="A modern-day warrior.  Mean, mean stride.  Today's Tom Sawyer.  Mean, mean pride."
 ```
 
+or if you want to download a copy of the audio
+
+```commandline
+http --download POST :8080/api/elevenlabs/speak \
+  Content-Type:application/json \
+  text="Say you can't sleep, baby, I know.  That's that me espresso." \
+  outputFormat==PCM_16000 \
+  toFile==true
+```
+
+
+
 ### Google &#x2AA7; Speech-to-text
 
 Prerequisites
@@ -211,10 +223,11 @@ for file in "${files[@]}"; do
    curl -O "https://raw.githubusercontent.com/Picovoice/cheetah/master/lib/common/$file"
 done
 
-mv *.pv src/main/resources
+mv *.pv target/classes
 ```
 
 > If you want to override the default model, remember to set an absolute path for the `PICOVOICE_MODEL_PATH` environment variable
+> e.g., `export PICOVOICE_MODEL_PATH=${user.dir}/target/classes/cheetah_params_de.pv`
 
 Repackage and run activating a Spring profile
 
@@ -281,10 +294,11 @@ for file in "${files[@]}"; do
    curl -O "https://raw.githubusercontent.com/Picovoice/leopard/master/lib/common/$file"
 done
 
-mv *.pv src/main/resources
+mv *.pv target/classes
 ```
 
 > If you want to override the default model, remember to set an absolute path for the `PICOVOICE_MODEL_PATH` environment variable
+> e.g., `export PICOVOICE_MODEL_PATH=${user.dir}/target/classes/leopard_params_ja.pv`
 
 Repackage and run activating a Spring profile
 

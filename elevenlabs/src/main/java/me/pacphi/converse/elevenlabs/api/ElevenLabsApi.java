@@ -33,7 +33,6 @@ public class ElevenLabsApi {
             Boolean enableLogging,
             OutputFormat outputFormat
     ) {
-        final String voice = voiceId != null ? voiceId : "Xb7hH8MSUJpSbSDYk0k2";
         final OutputFormat format = outputFormat != null ? outputFormat : OutputFormat.MP3_44100_64;
         final Boolean logging = enableLogging != null ? enableLogging : Boolean.TRUE;
         return restClient
@@ -42,7 +41,7 @@ public class ElevenLabsApi {
                         .path("/text-to-speech/{voiceId}")
                         .queryParam("enable_logging", logging)
                         .queryParam("output_format", format.name().toLowerCase())
-                        .build(voice))
+                        .build(voiceId))
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(request)
                 .retrieve()
