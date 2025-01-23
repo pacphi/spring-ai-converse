@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Profile("picovoice")
 @RestController
-@RequestMapping("/api/picovoice")
+@RequestMapping("/api/picovoice/cheetah")
 public class CheetahController {
 
     private CheetahService cheetahService;

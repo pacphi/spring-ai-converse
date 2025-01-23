@@ -228,12 +228,81 @@ mvn spring-boot:run -Dspring-boot.run.arguments=--spring.profiles.active=picovoi
 #### Available endpoints
 
 ```commandline
-http POST :8080/api/picovoice/transcribe \ 
+http POST :8080/api/picovoice/cheetah/transcribe \ 
   Content-Type:application/octet-stream \
   @/path/to/your/audio/file
 ```
 
 > Replace `/path/to/your/audio/file` above with a valid absolute path to your audio file
 
-Note: you are limited to providing .au, .aiff, or .wav files with a 16kHz sample rate.
- 
+Note: you are limited to providing .au, .aiff, or .wav audio files at 16kHz with a 16bit sample rate.
+
+### Picovoice &#x2AA7; Leopard &#x2AA7; Speech-to-text
+
+Prerequisites
+
+* a Picovice [account](https://console.picovoice.ai/signup)
+
+Set these environment variables
+
+```bash
+# Required
+export PICOVOICE_ACCESS_KEY=
+# Optional
+export PICOVOICE_MODEL_PATH=
+export PICOVOICE_ENABLE_AUTO_PUNCTUATION=
+export PICOVOICE_ENABLE_DIARIZATION=
+export PICOVOICE_VERBOSE=
+```
+
+> Add an appropriate value for each environment variable above.
+
+Navigate to the `playground` directory
+
+```bash
+cd playground
+```
+
+Execute the following script to seed the `model` files
+
+```bash
+files=(
+   "leopard_params.pv"
+   "leopard_params_de.pv" 
+   "leopard_params_es.pv"
+   "leopard_params_fr.pv"
+   "leopard_params_it.pv"
+   "leopard_params_ja.pv"
+   "leopard_params_ko.pv"
+   "leopard_params_pt.pv"
+)
+
+for file in "${files[@]}"; do
+   curl -O "https://raw.githubusercontent.com/Picovoice/leopard/master/lib/common/$file"
+done
+
+mv *.pv src/main/resources
+```
+
+> If you want to override the default model, remember to set an absolute path for the `PICOVOICE_MODEL_PATH` environment variable
+
+Repackage and run activating a Spring profile
+
+```bash
+mvn package
+mvn spring-boot:run -Dspring-boot.run.arguments=--spring.profiles.active=picovoice,dev
+```
+
+> Back in the terminal shell, press Ctrl+C to shutdown.
+
+#### Available endpoints
+
+```commandline
+http POST :8080/api/picovoice/leopard/transcribe \ 
+  Content-Type:application/octet-stream \
+  @/path/to/your/audio/file
+```
+
+> Replace `/path/to/your/audio/file` above with a valid absolute path to your audio file
+
+Note: you are limited to providing .3gp, .flac, .mp3, .mp4, .m4a, .ogg, .opus, .vorbis, .wav, or .webm audio files with a 16bit sample rate. 

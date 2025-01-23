@@ -26,6 +26,7 @@ Use-cases:
   * [x] [Assembly AI](https://www.assemblyai.com/blog/speech-recognition-in-java/)
   * [x] [Google STT](https://cloud.google.com/speech-to-text/docs/transcribe-client-libraries#client-libraries-install-java)
   * [x] [Picovoice Cheetah](https://github.com/Picovoice/cheetah?tab=readme-ov-file#java-demos)
+  * [x] [Picovoice Leopard](https://github.com/Picovoice/leopard?tab=readme-ov-file#java-demos)
 * Support for text to speech using 
   * [x] [ElevenLabs API](https://elevenlabs.io/docs/api-reference/text-to-speech/convert)
   * [ ] [Parler TTS](https://huggingface.co/ecyht2/parler-tts-mini-v1-GGUF)

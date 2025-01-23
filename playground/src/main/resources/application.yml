@@ -93,6 +93,14 @@ spring:
       defaults:
         model-path: ${PICOVOICE_MODEL_PATH:${user.dir}/target/classes/cheetah_params.pv}
         enable-automatic-punctuation: ${PICOVOICE_ENABLE_AUTO_PUNCTUATION:true}
+    leopard:
+      enabled: true
+      access-key: ${PICOVOICE_ACCESS_KEY:}
+      defaults:
+        model-path: ${PICOVOICE_MODEL_PATH:${user.dir}/target/classes/leopard_params.pv}
+        enable-automatic-punctuation: ${PICOVOICE_ENABLE_AUTO_PUNCTUATION:true}
+        enable-diarization: ${PICOVOICE_ENABLE_DIARIZATION:true}
+        verbose: ${PICOVOICE_VERBOSE:false}
 
 ---
 
