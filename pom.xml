@@ -29,9 +29,7 @@
         <module>assemblyai</module>
 		<module>google-text-to-speech</module>
 		<module>google-speech-to-text</module>
-<!--        <module>picovoice-leopard</module>-->
-<!--		<module>picovoice-cheetah</module>-->
-<!--		<module>picovoice-porcupine</module>-->
+		<module>picovoice-cheetah</module>
 <!--		<module>parler-text-to-speech</module>-->
 	</modules>
 

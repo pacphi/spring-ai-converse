@@ -45,7 +45,7 @@ public class GoogleSpeechToTextService implements AudioTranscriptionService {
             }
             return sb.toString().trim();
         } catch (IOException e) {
-            throw new GoogleSpeechToTextApiException("Trouble processing AssemblyAI API request", e);
+            throw new GoogleSpeechToTextApiException("Trouble creating stream from audio bytes", e);
         }
     }
 }

@@ -22,7 +22,7 @@ public class AssemblyAiService implements AudioTranscriptionService {
         try (InputStream inputStream = new ByteArrayInputStream(audio)) {
             return assemblyAiApi.speechToText(inputStream).getText().orElseThrow();
         } catch (IOException | NoSuchElementException e) {
-            throw new AssemblyAiApiException("Trouble processing AssemblyAI API request", e);
+            throw new AssemblyAiApiException("Trouble creating stream from audio bytes", e);
         }
     }
 }

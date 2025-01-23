@@ -8,6 +8,10 @@ You will enable features by activating Spring profiles.
 
 ### AssemblyAI
 
+Prerequisites
+
+* an AssemblyAI [account](https://www.assemblyai.com/dashboard/signup)
+
 Set these environment variables
 
 ```bash
@@ -36,6 +40,10 @@ http POST :8080/api/assemblyai/transcribe \
 > Replace `/path/to/your/audio/file` above with a valid absolute path to your audio file
 
 ### Elevenlabs
+
+Prerequisites
+
+* an Eleven Labs [account](https://elevenlabs.io/app/sign-up)
 
 Set these environment variables
 
@@ -94,7 +102,7 @@ export GOOGLE_STT_MODEL
 ```
 
 > Add an appropriate value for each environment variable above.
- 
+
 Navigate to the `playground` directory and activate a Spring profile
 
 ```bash
@@ -112,7 +120,7 @@ http POST :8080/api/google/transcribe \
   @/path/to/your/audio/file
 ```
 
-> Replace `/path/to/your/audio/file` above with a valid absolute path to your audio file 
+> Replace `/path/to/your/audio/file` above with a valid absolute path to your audio file
 
 ### Google &#x2AA7; Text-to-speech
 
@@ -162,4 +170,70 @@ http POST :8080/api/google/speak \
   Content-Type:application/json \
   text="Say you can't sleep, baby, I know.  That's that me espresso."
 ```
+
+### Picovoice &#x2AA7; Cheetah &#x2AA7; Speech-to-text
+
+Prerequisites
+
+* a Picovice [account](https://console.picovoice.ai/signup)
+
+Set these environment variables
+
+```bash
+# Required
+export PICOVOICE_ACCESS_KEY=
+# Optional
+export PICOVOICE_MODEL_PATH=
+export PICOVOICE_ENABLE_AUTO_PUNCTUATION=
+```
+
+> Add an appropriate value for each environment variable above.
+
+Navigate to the `playground` directory
+
+```bash
+cd playground
+```
+
+Execute the following script to seed the `model` files
+
+```bash
+files=(
+   "cheetah_params.pv"
+   "cheetah_params_de.pv" 
+   "cheetah_params_es.pv"
+   "cheetah_params_fr.pv"
+   "cheetah_params_it.pv"
+   "cheetah_params_pt.pv"
+)
+
+for file in "${files[@]}"; do
+   curl -O "https://raw.githubusercontent.com/Picovoice/cheetah/master/lib/common/$file"
+done
+
+mv *.pv src/main/resources
+```
+
+> If you want to override the default model, remember to set an absolute path for the `PICOVOICE_MODEL_PATH` environment variable
+
+Repackage and run activating a Spring profile
+
+```bash
+mvn package
+mvn spring-boot:run -Dspring-boot.run.arguments=--spring.profiles.active=picovoice,dev
+```
+
+> Back in the terminal shell, press Ctrl+C to shutdown.
+
+#### Available endpoints
+
+```commandline
+http POST :8080/api/picovoice/transcribe \ 
+  Content-Type:application/octet-stream \
+  @/path/to/your/audio/file
+```
+
+> Replace `/path/to/your/audio/file` above with a valid absolute path to your audio file
+
+Note: you are limited to providing .au, .aiff, or .wav files with a 16kHz sample rate.
  

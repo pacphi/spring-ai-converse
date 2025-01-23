@@ -84,6 +84,21 @@ spring:
 spring:
   config:
     activate:
+      on-profile: picovoice
+
+  picovoice:
+    cheetah:
+      enabled: true
+      access-key: ${PICOVOICE_ACCESS_KEY:}
+      defaults:
+        model-path: ${PICOVOICE_MODEL_PATH:${user.dir}/target/classes/cheetah_params.pv}
+        enable-automatic-punctuation: ${PICOVOICE_ENABLE_AUTO_PUNCTUATION:true}
+
+---
+
+spring:
+  config:
+    activate:
       on-profile: dev
 
 debug: true

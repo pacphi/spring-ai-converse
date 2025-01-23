@@ -35,3 +35,4 @@ build/
 ### Sensitive ###
 **/config/creds*.yml
 **/config/*.txt
+**/*.pv
