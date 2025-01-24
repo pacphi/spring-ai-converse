@@ -147,6 +147,15 @@
 	<profiles>
 		<profile>
 			<id>github</id>
+			<modules>
+				<module>core</module>
+				<module>elevenlabs</module>
+				<module>assemblyai</module>
+				<module>google-text-to-speech</module>
+				<module>google-speech-to-text</module>
+				<module>picovoice-cheetah</module>
+				<module>picovoice-leopard</module>
+			</modules>
 			<distributionManagement>
 				<site>
 					<id>github</id>
@@ -186,6 +195,15 @@
 		</profile>
 		<profile>
 			<id>maven-central</id>
+			<modules>
+				<module>core</module>
+				<module>elevenlabs</module>
+				<module>assemblyai</module>
+				<module>google-text-to-speech</module>
+				<module>google-speech-to-text</module>
+				<module>picovoice-cheetah</module>
+				<module>picovoice-leopard</module>
+			</modules>
 			<build>
 				<plugins>
 					<plugin>

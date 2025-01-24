@@ -12,6 +12,11 @@
     <artifactId>spring-ai-converse-playground</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
+    <properties>
+        <maven.deploy.skip>true</maven.deploy.skip>
+        <maven.install.skip>true</maven.install.skip>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
