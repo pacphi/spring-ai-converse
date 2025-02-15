@@ -9,7 +9,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>spring-boot-google-speech-to-text-starter</artifactId>
+    <artifactId>spring-boot-starter-google-speech-to-text</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
@@ -39,7 +39,7 @@
             <dependency>
                 <groupId>com.google.cloud</groupId>
                 <artifactId>libraries-bom</artifactId>
-                <version>26.53.0</version>
+                <version>26.54.0</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
