@@ -7,14 +7,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ConditionalOnProperty(name = "spring.picovoice.cheetah.enabled", havingValue = "true")
+@ConditionalOnProperty(name = "spring.ai.picovoice.cheetah.enabled", havingValue = "true")
 public class CheetahConfig {
 
     @Bean
     public CheetahApi cheetahApi(
-            @Value("${spring.picovoice.cheetah.access-key}") String accessKey,
-            @Value("${spring.picovoice.cheetah.defaults.model-path}") String modelPath,
-            @Value("${spring.picovoice.cheetah.defaults.enable-automatic-punctuation}") boolean enableAutomaticPunctuation) {
+            @Value("${spring.ai.picovoice.cheetah.access-key}") String accessKey,
+            @Value("${spring.ai.picovoice.cheetah.defaults.model-path}") String modelPath,
+            @Value("${spring.ai.picovoice.cheetah.defaults.enable-automatic-punctuation}") boolean enableAutomaticPunctuation) {
         return new CheetahApi(accessKey, modelPath, enableAutomaticPunctuation);
     }
 

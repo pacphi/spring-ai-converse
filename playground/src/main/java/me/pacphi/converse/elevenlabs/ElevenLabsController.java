@@ -24,7 +24,7 @@ public class ElevenLabsController {
     private final String voiceId;
     private final ElevenLabsService elevenLabsService;
 
-    public ElevenLabsController(@Value("${spring.elevenlabs.defaults.voiceId}") String voiceId, ElevenLabsService elevenLabsService) {
+    public ElevenLabsController(@Value("${spring.ai.elevenlabs.defaults.voiceId}") String voiceId, ElevenLabsService elevenLabsService) {
         this.voiceId = voiceId;
         this.elevenLabsService = elevenLabsService;
     }

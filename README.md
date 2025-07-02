@@ -109,22 +109,23 @@ Following Spring Boot conventions, you would add a stanza like this to your:
 application.properties
 
 ```properties
-spring.elevenlabs.enabled=true
-spring.elevenlabs.api-key=${ELEVENLABS_API_KEY:}
+spring.ai.elevenlabs.enabled=true
+spring.ai.elevenlabs.api-key=${ELEVENLABS_API_KEY:}
 # Consult https://api.elevenlabs.io/v1/voices for a list of all the available voices
-spring.elevenlabs.defaults.voiceId=Xb7hH8MSUJpSbSDYk0k2
+spring.ai..elevenlabs.defaults.voiceId=Xb7hH8MSUJpSbSDYk0k2
 ```
 
 application.yml
 
 ```yaml
 spring:
-  elevenlabs:
-    enabled: true
-    api-key: ${ELEVENLABS_API_KEY:}
-    defaults:
-      # Consult https://api.elevenlabs.io/v1/voices for a list of all the available voices
-      voiceId: Xb7hH8MSUJpSbSDYk0k2
+  ai:
+    elevenlabs:
+      enabled: true
+      api-key: ${ELEVENLABS_API_KEY:}
+      defaults:
+        # Consult https://api.elevenlabs.io/v1/voices for a list of all the available voices
+        voiceId: Xb7hH8MSUJpSbSDYk0k2
 ```
 
 > Each dependency you add will require a similar stanza where you will typically: activate the capability, specify an API key (if required), and tune other associated configuration.

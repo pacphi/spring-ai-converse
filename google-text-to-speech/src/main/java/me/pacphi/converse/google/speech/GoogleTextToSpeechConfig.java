@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ConditionalOnProperty(name = "spring.google.text-to-speech.enabled", havingValue = "true")
+@ConditionalOnProperty(name = "spring.ai.google.text-to-speech.enabled", havingValue = "true")
 public class GoogleTextToSpeechConfig {
 
     @Bean
@@ -18,9 +18,9 @@ public class GoogleTextToSpeechConfig {
     }
 
     @Bean GoogleTextToSpeechService googleTextToSpeechService(
-            @Value("${spring.google.text-to-speech.defaults.language-code}") String languageCode,
-            @Value("${spring.google.text-to-speech.defaults.voice-gender}") SsmlVoiceGender voiceGender,
-            @Value("${spring.google.text-to-speech.defaults.audio-encoding}") AudioEncoding audioEncoding,
+            @Value("${spring.ai.google.text-to-speech.defaults.language-code}") String languageCode,
+            @Value("${spring.ai.google.text-to-speech.defaults.voice-gender}") SsmlVoiceGender voiceGender,
+            @Value("${spring.ai.google.text-to-speech.defaults.audio-encoding}") AudioEncoding audioEncoding,
             GoogleTextToSpeechApi googleTextToSpeechApi) {
         return new GoogleTextToSpeechService(languageCode, voiceGender, audioEncoding, googleTextToSpeechApi);
     }

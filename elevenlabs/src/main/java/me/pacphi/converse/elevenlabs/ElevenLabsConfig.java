@@ -7,11 +7,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ConditionalOnProperty(name = "spring.elevenlabs.enabled", havingValue = "true")
+@ConditionalOnProperty(name = "spring.ai.elevenlabs.enabled", havingValue = "true")
 public class ElevenLabsConfig {
 
     @Bean
-    public ElevenLabsApi elevenLabsApi(@Value("${spring.elevenlabs.api-key}") String apiKey) {
+    public ElevenLabsApi elevenLabsApi(@Value("${spring.ai.elevenlabs.api-key}") String apiKey) {
         return new ElevenLabsApi(apiKey);
     }
 

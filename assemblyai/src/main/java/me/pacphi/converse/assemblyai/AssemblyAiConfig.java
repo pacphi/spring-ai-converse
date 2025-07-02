@@ -7,11 +7,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ConditionalOnProperty(name = "spring.assemblyai.enabled", havingValue = "true")
+@ConditionalOnProperty(name = "spring.ai.assemblyai.enabled", havingValue = "true")
 public class AssemblyAiConfig {
 
     @Bean
-    public AssemblyAiApi assemblyAiApi(@Value("${spring.assemblyai.api-key}") String apiKey) {
+    public AssemblyAiApi assemblyAiApi(@Value("${spring.ai.assemblyai.api-key}") String apiKey) {
         return new AssemblyAiApi(apiKey);
     }
 
